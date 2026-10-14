@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pemesanan Makanan</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="card">
+      <h1>Pemesanan Makanan</h1>
+
+      <!-- daftar menu beserta harganya -->
+      <p class="subjudul">Menu tersedia:</p>
+      <ul class="daftar-menu">
+        <li>Nasi Goreng: Rp15.000</li>
+        <li>Mie Ayam: Rp12.000</li>
+      </ul>
+
+      <!-- link ke halaman info yang berisi foto tiap menu -->
+      <a class="link-info" href="info.html">Info makanan</a>
+
+      <!-- data dicek dulu oleh validasiForm() di script.js sebelum dikirim ke proses.php -->
+      <form action="proses.php" method="post" onsubmit="return validasiForm()">
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama" autocomplete="name" />
+
+        <label for="menu">Menu:</label>
+        <select id="menu" name="menu">
+          <option value="">Pilih Menu</option>
+          <option value="nasi_goreng">Nasi Goreng</option>
+          <option value="mie_ayam">Mie Ayam</option>
+        </select>
+
+        <label for="jumlah">Jumlah:</label>
+        <input type="number" id="jumlah" name="jumlah" min="1" max="100" />
+
+        <button type="submit">Pesan</button>
+      </form>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

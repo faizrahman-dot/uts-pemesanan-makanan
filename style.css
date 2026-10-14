@@ -1,0 +1,279 @@
+/* warna dan ukuran dikumpulkan di sini supaya gampang diubah */
+:root {
+  --latar: #e8d5b0;
+  --aksen: #d4955a;
+  /* versi gelap dari aksen, khusus buat teks di atas putih supaya tetap kebaca */
+  --aksen-teks: #a3632c;
+  --aksen-ring: rgba(212, 149, 90, 0.25);
+  --sekunder: #1a1a1a;
+  --teks: #5a4535;
+  --teks-pudar: #8a7563;
+  --garis: #d9c7a8;
+  --garis-tipis: #efe3cf;
+  --merah: #c0392b;
+  --putih: #fff;
+  --radius-card: 28px;
+  --radius-input: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 40px 16px;
+  font: 100%/1.5 -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, "Helvetica Neue", Arial, sans-serif;
+  color: var(--teks);
+  background: var(--latar);
+  -webkit-font-smoothing: antialiased;
+}
+
+.card {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 3rem 2.25rem 2.5rem;
+  background: var(--putih);
+  border-radius: var(--radius-card);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 12px 40px rgba(90, 69, 53, 0.14);
+}
+
+h1 {
+  margin: 0 0 1.75rem;
+  text-align: center;
+  font-size: clamp(1.75rem, 6vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--aksen-teks);
+}
+
+h2 {
+  margin: 0;
+  color: var(--sekunder);
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.subjudul {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  color: var(--teks-pudar);
+}
+
+.daftar-menu {
+  margin: 0 0 1.5rem;
+  padding-left: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.daftar-menu li {
+  margin-bottom: 0.35rem;
+}
+
+.link-info {
+  display: inline-block;
+  font-size: 1.25rem;
+  color: var(--aksen-teks);
+  text-decoration: none;
+  transition: opacity 150ms ease;
+}
+
+.link-info:hover {
+  text-decoration: underline;
+}
+
+.link-info:active {
+  opacity: 0.6;
+}
+
+/* ===== form ===== */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin: 1.25rem 0 0.6rem;
+  font-size: 1.25rem;
+}
+
+label:first-child {
+  margin-top: 0;
+}
+
+input,
+select {
+  width: 100%;
+  height: 3.25rem;
+  padding: 0 1rem;
+  font: inherit;
+  font-size: 1.1rem;
+  color: var(--teks);
+  background: var(--putih);
+  border: 1.5px solid var(--garis);
+  border-radius: var(--radius-input);
+  outline: none;
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--aksen);
+  box-shadow: 0 0 0 4px var(--aksen-ring);
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 2.75rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='8' viewBox='0 0 14 8'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%235a4535' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  cursor: pointer;
+}
+
+/* ===== tombol ===== */
+button,
+.tombol {
+  display: block;
+  width: 100%;
+  margin-top: 1.75rem;
+  padding: 0.95rem 1rem;
+  font: inherit;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  color: var(--sekunder);
+  background: var(--aksen);
+  border: none;
+  border-radius: var(--radius-input);
+  cursor: pointer;
+  transition:
+    color 150ms ease,
+    background-color 150ms ease,
+    transform 100ms ease-out;
+}
+
+button:hover,
+.tombol:hover {
+  color: var(--latar);
+  background: var(--sekunder);
+}
+
+/* feedback langsung saat ditekan, bukan setelah dilepas */
+button:active,
+.tombol:active {
+  transform: scale(0.97);
+}
+
+button:focus-visible,
+.tombol:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--aksen-ring);
+}
+
+/* ===== halaman info ===== */
+.info-item {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--garis-tipis);
+}
+
+.info-item img {
+  flex-shrink: 0;
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 18px;
+  background: var(--latar);
+}
+
+.info-item ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+  color: var(--teks-pudar);
+}
+
+.harga {
+  margin: 0.15rem 0 0;
+  font-weight: 600;
+  color: var(--aksen-teks);
+}
+
+/* ===== halaman hasil ===== */
+.tabel-pesanan {
+  width: 100%;
+  margin-top: 1.25rem;
+  border-collapse: collapse;
+  font-size: 1.1rem;
+}
+
+.tabel-pesanan th,
+.tabel-pesanan td {
+  padding: 0.85rem 0.25rem;
+  text-align: left;
+  border-bottom: 1px solid var(--garis-tipis);
+}
+
+.tabel-pesanan th {
+  width: 40%;
+  font-weight: 500;
+  color: var(--teks-pudar);
+}
+
+.tabel-pesanan td {
+  font-weight: 500;
+}
+
+.baris-total th,
+.baris-total td {
+  border-bottom: none;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--aksen-teks);
+}
+
+.judul-error {
+  color: var(--merah);
+}
+
+.daftar-error {
+  margin: 0.75rem 0 0;
+  padding: 1rem 1rem 1rem 2.25rem;
+  color: var(--merah);
+  background: #fdf0ee;
+  border-radius: var(--radius-input);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+
+  button:active,
+  .tombol:active {
+    transform: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  input,
+  select {
+    border-color: var(--teks);
+  }
+
+  .card {
+    box-shadow: none;
+    border: 2px solid var(--sekunder);
+  }
+}
